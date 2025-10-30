@@ -3,6 +3,6 @@ import { HttpStatus } from "./httpStatus";
 
 export class NotFound extends AppError {
   constructor(message: string) {
-    super(message, HttpStatus.NotFound);
+    super(message, HttpStatus.NOT_FOUND);
   }
 }

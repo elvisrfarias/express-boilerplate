@@ -1,8 +1,8 @@
 import { AppError } from "./AppError";
 import { HttpStatus } from "./httpStatus";
 
-export class BadRequest extends AppError {
+export class InternalServerError extends AppError {
   constructor(message: string) {
-    super(message, HttpStatus.BAD_REQUEST);
+    super(message, HttpStatus.INTERNAL_SERVER_ERROR);
   }
 }

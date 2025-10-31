@@ -9,10 +9,14 @@ export const errorMiddleware = (
   _next: NextFunction
 ) => {
   if (err instanceof AppError) {
-    return res.status(err.status).json({ message: err.message });
+    return res.status(err.status).json({
+      status: err.status,
+      message: err.message,
+      ...((err as any).issues && { issues: err.issues }),
+    });
   }
 
-  res
+  return res
     .status(HttpStatus.INTERNAL_SERVER_ERROR)
     .json({ message: "Internal server error" });
 };

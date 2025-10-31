@@ -1,7 +1,6 @@
 import "reflect-metadata";
 import { DataSource } from "typeorm";
-import { User } from "../entities/User";
-import { Product } from "../entities/Product";
+import { User } from "../modules/users/entities/user.entity";
 
 export const AppDataSource = new DataSource({
   type: "postgres",
@@ -11,6 +10,6 @@ export const AppDataSource = new DataSource({
   password: process.env.DB_PASS || "postgres",
   database: process.env.DB_NAME || "express_boilerplate",
   logging: process.env.NODE_ENV === "development",
-  entities: [User, Product],
+  entities: [User],
   // synchronize: true, // ⚠️ apenas para dev
 });
